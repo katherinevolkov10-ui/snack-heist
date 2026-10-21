@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Great Snack Heist</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <span class="signature">Thulasi ♡</span>
+  <main class="card">
+    <header class="top-row">
+      <p class="label">✦ a tiny mystery adventure ✦</p>
+      <button id="sound-button" class="sound-button" type="button">
+        🔊 Sound on
+      </button>
+    </header>
+
+    <div id="mascot" class="mascot" aria-hidden="true">🦝</div>
+
+    <p id="chapter" class="chapter">YOUR CASE BEGINS</p>
+    <h1 id="title">The Great Snack Heist</h1>
+
+    <p id="story" class="story">
+      Someone has stolen the legendary Moon Cookie! The only clue is one
+      glittery crumb and a pigeon wearing sunglasses. Enter your detective
+      name and prepare for nonsense.
+    </p>
+
+    <section id="start-screen">
+      <label for="player-name">What should we call you, detective?</label>
+      <input id="player-name" maxlength="20" placeholder="Your nickname (optional)">
+      <button id="start-button" class="main-button" type="button">
+        Start investigating →
+      </button>
+    </section>
+
+    <section id="puzzle-screen" hidden>
+      <div class="progress-row">
+        <span id="progress">Puzzle 1 of 4</span>
+        <span id="score">Clues solved: 0</span>
+      </div>
+
+      <div class="clue-box">
+        <p class="clue-heading">🧩 YOUR CLUE</p>
+        <p id="puzzle"></p>
+      </div>
+
+      <form id="answer-form">
+        <label for="answer">What’s your answer?</label>
+        <input id="answer" autocomplete="off" placeholder="Type your answer here">
+        <button id="submit-button" class="main-button" type="submit">
+          Submit answer
+        </button>
+      </form>
+
+      <p id="feedback" aria-live="polite"></p>
+
+      <p id="hint" class="hint" hidden></p>
+      <button id="hint-button" class="text-button" type="button">
+        I need a hint 👀
+      </button>
+
+      <button id="next-button" class="main-button next-button" type="button" hidden>
+        Next clue →
+      </button>
+    </section>
+
+    <section id="review-screen" hidden>
+      <div class="review-box">
+        <p class="clue-heading">💌 DETECTIVE DEBRIEF</p>
+        <p id="ending-story"></p>
+        <p id="compliment" class="compliment"></p>
+      </div>
+
+      <section class="hall-box">
+        <p class="clue-heading">🏆 THE DETECTIVE HALL OF FAME</p>
+        <p id="detective-count" class="status-text">Loading detectives…</p>
+        <ul id="detective-list"></ul>
+      </section>
+
+      <form id="review-form">
+        <label for="rating">How was your adventure?</label>
+        <select id="rating" required>
+          <option value="">Choose a rating</option>
+          <option value="5">⭐⭐⭐⭐⭐ Loved it!</option>
+          <option value="4">⭐⭐⭐⭐ Pretty fun!</option>
+          <option value="3">⭐⭐⭐ It was okay!</option>
+          <option value="2">⭐⭐ Could be better!</option>
+          <option value="1">⭐ I have notes!</option>
+        </select>
+
+        <label for="review-comment">Leave a little review</label>
+        <textarea
+          id="review-comment"
+          maxlength="300"
+          required
+          placeholder="What was your favourite clue?"
+        ></textarea>
+
+        <button id="submit-review-button" class="main-button" type="submit">
+          Share my review ♡
+        </button>
+      </form>
+
+      <p id="review-message" class="status-text" aria-live="polite"></p>
+
+      <button id="read-reviews-button" class="text-button" type="button">
+        Read other players’ reviews 💬
+      </button>
+
+      <section id="reviews-area" class="reviews-area" hidden>
+        <h2>Detective reviews</h2>
+        <p id="reviews-status" class="status-text" aria-live="polite"></p>
+        <ul id="reviews-list"></ul>
+      </section>
+
+      <button id="copy-button" class="text-button" type="button">
+        Copy my detective report ✨
+      </button>
+      <button id="restart-button" class="text-button" type="button">
+        Play again ↻
+      </button>
+    </section>
+
+    <p class="footer">Think carefully. The pigeon is absolutely not helping. 🐦</p>
+  </main>
+
+  <audio
+    id="background-music"
+    src="sounds/pink-panther-theme.mp3"
+    preload="auto"
+    loop
+  ></audio>
+  <audio id="correct-sound" src="sounds/correct.mp3" preload="auto"></audio>
+  <audio id="wrong-sound" src="sounds/wrong.mp3" preload="auto"></audio>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
